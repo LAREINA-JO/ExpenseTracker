@@ -1,0 +1,23 @@
+{
+  "extends": "../../build-common-config/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declarationDir": "./dist/types",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@tests/*": ["tests/*"]
+    }
+  },
+  "include": [
+    "src",
+    "tests",
+    "e2e",
+    "prisma/seed",
+    "build-common-config",
+    "build-common-config/.prettierrc.js",
+    "build-tools",
+    "scripts"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    // "composite": true,
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    // "allowJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    // "allowImportingTsExtensions": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    // "verbatimModuleSyntax": true, // only work for esm for node project
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": false,
+    "noImplicitOverride": true,
+    "strictFunctionTypes": true,
+    "useUnknownInCatchVariables": true,
+    "skipLibCheck": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  }
+}

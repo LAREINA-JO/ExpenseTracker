@@ -1,0 +1,87 @@
+{
+  "name": "coderui",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.umd.js",
+  "scripts": {
+    "test": "pnpm typeCheck && pnpm eslint && pnpm stylelint && pnpm vitest",
+    "build": "vite --config build-tools/vite.config.mts build",
+    "build:clean": "rm -rf dist",
+    "clean": "rm -rf node_modules dist coverage",
+    "prepublishOnly": "pnpm test  && pnpm build",
+    "typeCheck": "tsc --noEmit",
+    "eslint": "eslint --fix",
+    "lintStaged": "lint-staged --config build-tools/lint-staged.config.js",
+    "dev": "vite --config build-tools/vite.dev.config.mts build",
+    "preview": "vite --config build-tools/vite.config.mts preview",
+    "vitest": "vitest --config build-tools/vitest.config.mts run --coverage",
+    "vitest:dev": "vitest --config build-tools/vitest.config.mts",
+    "stylelint": "stylelint --config build-tools/stylelint.config.js src/**/*.{scss,css}",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
+  "engines": {
+    "node": ">=v20.15.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "@storybook/addon-essentials": "^8.4.5",
+    "@storybook/addon-interactions": "^8.4.5",
+    "@storybook/addon-links": "^8.4.5",
+    "@storybook/blocks": "^8.4.5",
+    "@storybook/preview-api": "^8.4.5",
+    "@storybook/react": "^8.4.5",
+    "@storybook/react-vite": "^8.4.5",
+    "@storybook/test": "^8.4.5",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "jsdom": "^25.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "storybook": "^8.4.5",
+    "storybook-addon-deep-controls": "^0.8.2",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss": "^3.4.15",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-lib-inject-css": "^2.1.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "clsx": "^2.1.1",
+    "react-icons": "^5.3.0",
+    "react-toastify": "^10.0.6"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.umd.js"
+      }
+    }
+  }
+}

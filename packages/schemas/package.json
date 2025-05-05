@@ -1,0 +1,51 @@
+{
+  "name": "@expense-tracker/schemas",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "pnpm typeCheck && pnpm eslint && pnpm vitest",
+    "build": "pnpm build:clean && pnpm build:cjs && pnpm build:esm && pnpm api-report && pnpm api-docs",
+    "build:clean": "rm -rf dist",
+    "clean": "rm -rf node_modules dist coverage",
+    "prepublishOnly": "pnpm test && pnpm build",
+    "api-report": "api-extractor run --local",
+    "api-docs": "api-documenter markdown -i temp -o docs",
+    "start": "",
+    "dev": "nodemon",
+    "build:esm": "NODE_ENV=production tsx scripts/esm/build-esm.ts",
+    "build:cjs": "NODE_ENV=production tsc -b tsconfig.build.json && tsc-alias",
+    "typeCheck": "tsc --noEmit",
+    "eslint": "eslint --fix",
+    "lintStaged": "lint-staged --config build-tools/lint-staged.config.js",
+    "vitest": "vitest --config build-tools/vitest.config.mts run --coverage",
+    "vitest:dev": "vitest --config build-tools/vitest.config.mts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
+  "engines": {
+    "node": ">=v20.15.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

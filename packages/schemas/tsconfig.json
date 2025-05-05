@@ -1,0 +1,23 @@
+{
+  "extends": "../../build-common-config/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/cjs",
+    "declarationDir": "./dist/cjs/types",
+    "tsBuildInfoFile": "./dist/cjs/.tsbuildinfo",
+    "removeComments": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@tests/*": ["tests/*"],
+    }
+  },
+  "include": [
+    "src",
+    "tests",
+    "e2e",
+    "build-common-config",
+    "build-common-config/.prettierrc.js",
+    "build-tools",
+    "scripts"
+  ]
+}

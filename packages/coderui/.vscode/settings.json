@@ -1,0 +1,4 @@
+{
+  "stylelint.configFile": "build-tools/stylelint.config.js",
+  "stylelint.validate": ["css", "scss"]
+}
